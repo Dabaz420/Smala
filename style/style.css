@@ -1,0 +1,32 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    font-size: large;
+}
+
+body.addon-alert .alert {
+    display: none;
+    text-align: center;
+    padding: 1rem;
+    margin-bottom: 2rem;
+}
+  
+body.addon-alert .alert.fail:target {
+    display: block;
+}
+  
+body.addon-alert .alert.success:target {
+    display: block;
+}
+
+body.addon-alert .alert.form:target {
+    display: block;
+}
