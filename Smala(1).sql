@@ -25,7 +25,7 @@ CREATE TABLE `Smala_users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
 INSERT INTO `Smala_users` (`user_id`, `user_email`, `user_password`, `user_role`) VALUES
-(1,	'admin',	'$2y$10$xGXLLXzDd9qf6CvV0VFrhOUjajW09nqEA0ZfLOozQfNEudM.KtATK',	'admin');
+(1,	'admin@admin.com',	'$2y$10$xGXLLXzDd9qf6CvV0VFrhOUjajW09nqEA0ZfLOozQfNEudM.KtATK',	'admin');
 
 CREATE TABLE `Smala_assoc_users_images` (
   `assoc_id` int NOT NULL AUTO_INCREMENT,
