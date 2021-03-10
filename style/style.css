@@ -1,22 +1,94 @@
 *, *::before, *::after {
     box-sizing: border-box;
-}
-
-html {
-    font-size: 62.5%;
     margin: 0;
     padding: 0;
 }
 
+html {
+    font-size: 62.5%;
+}
+
 body{
+    min-height: 100vh;
     font-size: large;
+    background-color: #FF4DAD;
+    color: #FAFF0C;
+    display: grid;
+    place-items: center;
+}
+
+header{
+    width: 100vw;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+    align-items: center;
+    background-color: red;
+    padding: 1rem;
+    align-self: baseline;
+}
+
+header svg{
+    height: 10vh;
+    width: 10vw;
+}
+
+form{
+    padding: 2rem;
+    align-self: baseline;
+}
+
+input{
+    background: radial-gradient(#FF4DAD, #FAFF0C, #42FF00);
+    height: 5rem;
+    color: #0038FF;
+    font-weight: bolder;
+    padding: 2rem;
+}
+
+a{
+    color: #0038FF;
+}
+
+div.photo{
+    display: grid;
+    width: 90vw;
+    place-items: center;
+    grid-template-areas: ". titre ."
+                         "svgG photo svgD"
+                         ". supp .";
+    align-self: baseline;
+}
+
+div.photo img{
+    grid-area: photo;
+    width: 60vw;
+}
+
+div.photo svg{
+    height: 15vh;
+    width: 15vw;
+}
+
+div.photo a.svgD{
+    grid-area: svgD;
+}
+
+div.photo a.svgG{
+    grid-area: svgG;
+}
+
+div.photo a.supp{
+    grid-area: supp;
+}
+
+div.photo p{
+    grid-area: titre;
 }
 
 body.addon-alert .alert {
     display: none;
     text-align: center;
-    padding: 1rem;
-    margin-bottom: 2rem;
 }
   
 body.addon-alert .alert.fail:target {

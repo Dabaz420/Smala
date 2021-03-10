@@ -12,9 +12,14 @@
         <body class='addon-alert'>
         <h1>Smala</h1>
         <form action='' method='post'>
-        Identifiant (email): <input type='text' name='user_email'/><br/>
-        Mot de passe : <input type='password' name='user_password'/><br/>
+        <label for='user_email'>Identifiant (email):</label><br/>
+        <input type='email' name='user_email'/><br/>
+        <label for='user_password'>Mot de passe :</label><br/>
+        <input type='password' name='user_password'/><br/>
         <input type='submit' name='submitLogin' value='Go!'/>
+        <div class='alert fail' id='non'>
+            <p>Tu t'es trompé poto</p>
+        </div>
         </form>
         </body>
         </html>";

@@ -1,9 +1,9 @@
 <?php
 
   const DB_HOST    = "localhost";
-  const DB_NAME    = "wmhnyats_Smala";
-  const DB_LOGIN   = "wmhnyats_damien";
-  const DB_PASS    = "rArmYvT2URwhz6m";
+  const DB_NAME    = "Smala";
+  const DB_LOGIN   = "root";
+  const DB_PASS    = "damien";
 
   const DB_DRIVER  = "mysql";
   const DB_CHARSET = "utf8";

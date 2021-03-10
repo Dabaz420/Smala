@@ -37,36 +37,28 @@ include("model/mod.pdo.php");
 
         try{
             $requete = "SELECT *
-                FROM Smala_assoc_users_images
-                JOIN Smala_users ON Smala_users.user_id = Smala_assoc_users_images.assoc_users_id
-                JOIN Smala_images ON Smala_images.image_id = Smala_assoc_users_images.assoc_images_id
-                WHERE Smala_users.user_id = :user_id;";
+                        FROM Smala_images
+                        INNER JOIN Smala_assoc_users_images ON Smala_images.image_id = Smala_assoc_users_images.assoc_images_id
+                        WHERE assoc_users_id = :assoc_users_id;";
             $prepare = $pdo->prepare($requete);
             $prepare->execute(array(
-                        ":user_id" => $user_id
+                        ":assoc_users_id" => $user_id
                         ));
             $resultat = $prepare->fetchAll();
 
-
-            $requete = "DELETE FROM `Smala_assoc_users_images`
-                        WHERE `assoc_users_id` = :user_id;"; 
+            $requete = "DELETE Smala_images
+                        FROM Smala_images
+                        INNER JOIN Smala_assoc_users_images ON Smala_images.image_id = Smala_assoc_users_images.assoc_images_id
+                        WHERE assoc_users_id = :assoc_users_id;"; 
             $prepare = $pdo->prepare($requete);
             $prepare->execute(array(
-                        ":user_id" => $user_id
+                        ":assoc_users_id" => $user_id
                         ));
-
-            foreach($resultat as $key => $value){
-                $requete = "DELETE FROM `Smala_images`
-                            WHERE `image_id` = :image_id;"; 
-                $prepare = $pdo->prepare($requete);
-                $prepare->execute(array(
-                            ":image_id" => $value['image_id']
-                            ));
-                $res = $prepare->rowCount();
-                if($res == 1){
-                    unlink($value["image_chemin"]);
-                }
+                        
+            foreach ($resultat as $key => $value) {
+                unlink($value["image_chemin"]);
             }
+ 
 
             $requete = "DELETE FROM `Smala_users`
             WHERE `user_id` = :user_id;"; 
@@ -74,6 +66,7 @@ include("model/mod.pdo.php");
             $prepare->execute(array(
             ":user_id" => $user_id
             ));
+            $res = $prepare->rowCount();
             if($res == 1){
                 header("Location: ?gererUsers#suppressionReussi");
                 exit;
@@ -218,9 +211,9 @@ include("model/mod.pdo.php");
             $requete = "DELETE FROM `Smala_assoc_users_images` WHERE `assoc_images_id` = :image_id;";
             $prepare = $pdo->prepare($requete);
             $prepare->execute(array(
-               ":image_id" => $image_id
+                ":image_id" => $image_id
             ));
-
+            
             $requete = "DELETE FROM `Smala_images` WHERE `image_id` = :image_id;";
             $prepare = $pdo->prepare($requete);
             $prepare->execute(array(
