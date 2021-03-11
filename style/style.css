@@ -173,3 +173,67 @@ input{
     justify-content: center;
     align-self: center;
 }
+
+@media (min-width: 768px) {
+    *, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    }
+
+    html {
+        font-size: 62.5%;
+    }
+
+    body{
+        font-size: large;
+        display: grid;
+        grid-template-rows: auto auto 3fr auto;
+        justify-content: center;
+        text-align: center;
+        min-height: 100vh;
+        max-width: 100vw;
+        padding: 1rem
+    }
+
+    body.addon-alert .alert {
+        display: none;
+        text-align: center;
+    }
+    
+    body.addon-alert .alert.fail:target {
+        display: block;
+    }
+    
+    body.addon-alert .alert.success:target {
+        display: block;
+    }
+
+    body.addon-alert .alert.form:target {
+        display: block;
+    }
+
+    a {
+        color:  #FFD700;
+    }
+
+    svg {
+        width: 4rem;
+        height: 4rem;
+    }
+
+    .photo{
+        display: grid;
+        width: 100vw;
+        place-items: center;
+        grid-template-areas: ". titre ."
+                            "svgGauche viewPhoto svgDroite"
+                            " . supp .";
+        align-self: center;
+    }
+        
+    .viewPhoto{
+        grid-area: viewPhoto;
+        width: 20vw;
+    }
+} 
